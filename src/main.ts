@@ -8,6 +8,9 @@ async function main() {
   const data = await pdf(file)
 
   const {transactions, errors, lines} = parseStatement(data.text)
+  console.log("transactions",transactions)
+  console.log("errors",errors)
+  console.log("lines",lines)
   console.log(`${transactions.length} transactions available.`)
 
   await writeFile('./logs/raw.txt', data.text)
